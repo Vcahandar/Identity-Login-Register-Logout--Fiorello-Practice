@@ -1,0 +1,32 @@
+﻿@model SliderInfo
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container-fluid mx-5 my-3">
+    <h3>Update Blog</h3>
+    <div class="img-area">
+        <img src="~/img/@Model.SignatureImage" style="height:200px;" alt="Alternate Text" />
+    </div>
+    <form asp-action="Edit" method="get" enctype="multipart/form-data">
+        <div class="form-group my-3">
+            <input style="width:300px !important" class="form-control" asp-for="SignaturePhoto" disabled>
+            <span class="text-danger" asp-validation-for="SignaturePhoto"></span>
+        </div>
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label"><b>Title</b></label>
+            <input class="form-control" type="text" id="formFile" asp-for="Title" disabled>
+
+        </div>
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label"><b>Descrition</b></label>
+            <input class="form-control" type="text" id="formFile" asp-for="Description" disabled>
+        </div>
+
+        <a class="btn btn-primary" asp-controller="sliderinfo" asp-action="Index">Back</a>
+
+    </form>
+</div>
+
+
+

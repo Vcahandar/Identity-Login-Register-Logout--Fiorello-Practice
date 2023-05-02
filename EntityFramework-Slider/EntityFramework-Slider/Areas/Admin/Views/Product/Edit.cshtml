@@ -1,0 +1,52 @@
+﻿@model ProductEditVM
+
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container my-5">
+
+    <form class="forms-sample" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+    <label for="formFile" class="form-label"><b>Add a new Name</b></label>
+    <input class="form-control"  id="customFile" asp-for="Name" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+
+    <div class="form-group mt-5">
+        <label for="formFile" class="form-label"><b>Add a new Description</b></label>
+        <textarea class="form-control" id="formFile" asp-for="Description" ghc" rows="6"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="formFile" class="form-label"><b>Add a new Price</b></label>
+        <input type="text"  class="form-control" type="text" id="formFile" asp-for="Price">
+        <span class="text-danger" asp-validation-for="Price"></span>
+
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="formFile" class="form-label"><b>Add a new Category</b></label>
+            <select class="form-control" asp-for="CategoryID" asp-items="@ViewBag.categories"></select>
+        </div>
+
+    <div class="form-group mt-5">
+        @foreach (var item in Model.productImages)
+        {
+            <img src="~/img/@item.Image" style="width:150px;height:150px;" />
+        }
+    </div>
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label"><b>Add a new Photos</b></label>
+            <input class="form-control" id="customFile" asp-for="Photos" />
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+
+        <div class="buttons my-3">
+            <button type="submit" class="btn btn-primary mr-2">Edit</button>
+            <a class="btn btn-dark" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</div>

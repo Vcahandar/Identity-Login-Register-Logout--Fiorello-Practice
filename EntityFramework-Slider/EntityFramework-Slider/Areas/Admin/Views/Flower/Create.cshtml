@@ -1,0 +1,24 @@
+﻿    @model ExpertHeader
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5">
+    <h1>Create</h1>
+    <form class="forms-sample" asp-action="Create" method="post">
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label">Add a new title</label>
+            <input class="form-control" type="text" id="formFile" asp-for="Title">
+
+        </div>
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label">Add a new description</label>
+            <input class="form-control" type="text" id="formFile" asp-for="Description">
+
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-dark">Cancel</button>
+    </form>
+
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model SliderVM
+
+<section id="slider">
+    <div class="owl-carousel slider">
+        @foreach (var slider in Model.Sliders)
+        {
+            <div> <img src="~/img/@slider.Image" alt=""> </div>
+        }
+
+
+    </div>
+
+    @if (Model.SliderInfos != null)
+    {
+        <div class="container context pl-lg-5 ml-lg-3">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="text">
+                        @Html.Raw(Model.SliderInfos.Title)
+                        <p class="text-black-50 d-none d-sm-block">@Html.Raw(Model.SliderInfos.Title)</p>
+                    </div>
+                    <div class="img">
+                        <img src="~/img/@Model.SliderInfos.SignatureImage" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container context pl-lg-5 ml-lg-3">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="text">
+                        P135 Title
+                        <p class="text-black-50 d-none d-sm-block">P135 Description </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</section>

@@ -1,0 +1,72 @@
+﻿@*@model List<BasketVM>*@
+@model List<BasketDetailVM>
+@{
+    ViewData["Title"] = "Index";
+    decimal grandTotal = 0;
+}
+
+<div class="container my-5">
+    @if (Model.Count > 0)
+    {
+            <table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Category</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Count</th>
+      <th scope="col">Price</th>
+      <th scope="col">Total</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+      {
+          <tr>
+              
+              <td><img src="~/img/@item.Image" style="width:70px;height:70px" alt="image" /></td>
+              <td>@item.CategoryName</td>
+              <td>@item.Name</td>
+              <td>@item.Description</td>
+              <td>@item.Count</td>
+              <td>@item.Price ₼</td>
+              <td>@item.Total ₼</td>
+              <td><a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a></td>
+          </tr>
+           
+          grandTotal += item.Total;
+      }
+  </tbody>
+        </table>
+
+        <h1 class="my-4 text-right">Grand total:@grandTotal ₼</h1>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            Product not yet added
+        </div>
+    }
+
+
+    @*@{
+        decimal totalPrice = 0;
+
+        foreach (var item in Model)
+        {
+            totalPrice += (item.Product.Price * item.Count);
+        }
+    }
+
+
+    <div class="totals">
+        <span>Total price: $ @totalPrice </span>
+    </div>*@
+
+    
+</div>
+
+

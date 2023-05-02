@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "Blog";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-white">
+                    <a class="btn btn-success my-3" asp-action="Create">Create</a>
+
+                    <thead>
+                        <tr>
+                            <th> Image </th>
+                            <th> Title </th>
+                            <th> Create date </th>
+                            <th> Operations </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var blog in Model)
+                        {
+                            <tr>
+                                <td class="img">
+                                    <img src="~/img/@blog.Image" class="myImg" />
+                                </td>
+                                <td style="width:160px;">
+                                    @blog.Header
+                                </td>
+                                <td style="width:160px;">
+                                    @blog.Date.ToString("MM.dd.yyyy")
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-warning" asp-action="Detail" asp-route-id="@blog.Id">Info</a>
+                                    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@blog.Id">Edit</a>
+                                    <form style="display: inline-block;" asp-action="Delete" asp-route-id="@blog.Id" method="post">
+                                        <button class="btn btn-outline-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

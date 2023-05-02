@@ -1,0 +1,40 @@
+﻿@model SliderInfo
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5">
+    <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label"><b>Add title</b></label>
+            <textarea class="form-control" asp-for="Title" rows="3" id="title-desc"></textarea>
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label"><b>Add description</b></label>
+            <textarea class="form-control" asp-for="Description" rows="6" id="desc"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-group mt-5">
+            <label for="formFile" class="form-label"><b>New image</b></label>
+            <input class="form-control" id="formFile" asp-for="SignaturePhoto">
+            <span class="text-danger" asp-validation-for="SignaturePhoto"></span>
+        </div>
+        <div class="buttons my-3">
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a class="btn btn-light" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts{
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("title-desc")
+    </script>
+    <script>
+        CKEDITOR.replace("desc")
+    </script>
+}
